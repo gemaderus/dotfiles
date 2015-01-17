@@ -8,11 +8,24 @@ Set zsh as your login shell.
 Install
 -------
 
-First, create symlinks for ssh credentials, usually backed up in Dropbox. Remove any .zshrc or .bin folder. Pay attention for possible changes or aditions. Try to stay update this dotfiles.
+First clone this repo to your work folder:
 
 ```
-    cd dotfiles
+git clone git@github.com:gemaderus/dotfiles.git
+```
+
+Remove any .zshrc. 
+
+```
+cd ~
+rm -rf .zshrc
+```
+
+Then run the installation script: 
+
+```
+    cd work/personal/dotfiles
     ./install.sh
 ```
 
-This will create symlinks for config files in your home directory. 
+This will create symlinks for config files in your home directory. Try to stay update this dotfiles.
