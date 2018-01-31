@@ -1,11 +1,13 @@
-source ~/.zsh/config/env
-
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 
 # completion
-autoload -U compinit
+# autoload -U compinit
+# compinit
+autoload -Uz compinit promptinit;
 compinit
+promptinit
+prompt pure
 
 for function in ~/.zsh/functions/*; do
   source $function
@@ -16,17 +18,12 @@ setopt auto_cd
 
 # use sublime as the visual editor
 export VISUAL=subl
-export EDITOR=$VISUAL
+export EDITOR=vim
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
-
-# vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-bindkey jj vi-cmd-mode
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
@@ -35,26 +32,14 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
-# handy keybindings
-bindkey "^P" history-search-backward
-bindkey "^Y" accept-and-hold
-bindkey "^N" insert-last-word
-bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
-
 # expand functions in the prompt
 setopt prompt_subst
-
-# prompt
-export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 
 # ignore duplicate history entries
 setopt histignoredups
 
 # keep TONS of history
 export HISTSIZE=4096
-
-# look for ey config in project dirs
-export EYRC=./.eyrc
 
 # automatically pushd
 setopt auto_pushd
@@ -70,5 +55,6 @@ setopt CORRECT CORRECT_ALL
 
 # Enable extended globbing
 setopt EXTENDED_GLOB
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh --no-rehash)"
+
+export PATH="$HOME/.yarn/bin:$PATH"
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
