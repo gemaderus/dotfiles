@@ -57,4 +57,5 @@ setopt CORRECT CORRECT_ALL
 setopt EXTENDED_GLOB
 
 export PATH="$HOME/.yarn/bin:$PATH"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. ~/.zsh/plugins/z/z.sh
