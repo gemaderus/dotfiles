@@ -17,7 +17,7 @@ done
 setopt auto_cd
 
 # use sublime as the visual editor
-export VISUAL=subl
+export VISUAL=code
 export EDITOR=vim
 
 # aliases
@@ -56,8 +56,23 @@ setopt CORRECT CORRECT_ALL
 # Enable extended globbing
 setopt EXTENDED_GLOB
 
-export PATH="$HOME/.yarn/bin:$PATH"
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-. ~/.zsh/plugins/z/z.sh
+export PATH="$HOME/.yarn/bin:$PATH"
+
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. /usr/local/etc/profile.d/z.sh
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+export PATH="$HOME/.bin:$PATH"
+
+# recommended by brew doctor
+export PATH="/usr/local/bin:$PATH"
+eval "$(rbenv init - zsh --no-rehash)"
 
