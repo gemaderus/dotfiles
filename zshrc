@@ -18,7 +18,7 @@ setopt auto_cd
 
 # use sublime as the visual editor
 export VISUAL=code
-export EDITOR=vim
+export EDITOR=code
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -76,3 +76,9 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
